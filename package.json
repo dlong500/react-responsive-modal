@@ -18,7 +18,8 @@
     "size": "size-limit",
     "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md}\"",
     "dtslint": "dtslint types",
-    "generate-props": "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
+    "generate-props": "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier",
+    "prepare": "yarn run build"
   },
   "files": [
     "lib",
