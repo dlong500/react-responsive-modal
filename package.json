@@ -53,6 +53,7 @@
   },
   "homepage": "https://github.com/pradel/react-responsive-modal#readme",
   "dependencies": {
+    "body-scroll-lock": "^2.6.1",
     "classnames": "^2.2.6",
     "focus-trap-react": "^4.0.1",
     "no-scroll": "^2.1.1",

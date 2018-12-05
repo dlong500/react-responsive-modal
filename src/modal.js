@@ -4,15 +4,22 @@ import { polyfill } from 'react-lifecycles-compat';
 import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
-import noScroll from 'no-scroll';
+// import noScroll from 'no-scroll';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import type { BodyScrollOptions } from 'body-scroll-lock';
 import FocusTrap from 'focus-trap-react';
 import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
 
+const bsloptions: BodyScrollOptions = {
+  reserveScrollBarGap: true,
+}
+
 class Modal extends Component {
   static blockScroll() {
-    noScroll.on();
+    // noScroll.on();
+    disableBodyScroll(null, bsloptions);
   }
 
   shouldClose = null;
@@ -132,7 +139,8 @@ class Modal extends Component {
   unblockScroll = () => {
     // Restore the scroll only if there is no modal on the screen
     if (modalManager.modals().length === 0) {
-      noScroll.off();
+      // noScroll.off();
+      enableBodyScroll(null)
     }
   };
 
