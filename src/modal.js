@@ -6,15 +6,19 @@ import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 // import noScroll from 'no-scroll';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import type { BodyScrollOptions } from 'body-scroll-lock';
+// import type { BodyScrollOptions } from 'body-scroll-lock';
 import FocusTrap from 'focus-trap-react';
 import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
 
-const bsloptions: BodyScrollOptions = {
+// const bsloptions: BodyScrollOptions = {
+//   reserveScrollBarGap: true,
+// };
+
+const bsloptions = {
   reserveScrollBarGap: true,
-}
+};
 
 class Modal extends Component {
   static blockScroll() {
@@ -140,7 +144,7 @@ class Modal extends Component {
     // Restore the scroll only if there is no modal on the screen
     if (modalManager.modals().length === 0) {
       // noScroll.off();
-      enableBodyScroll(null)
+      enableBodyScroll(null);
     }
   };
 
