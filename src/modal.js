@@ -23,17 +23,21 @@ const bsloptions = {
 class Modal extends Component {
   targetRef = React.createRef();
 
-  targetElement = null;
-
   shouldClose = null;
+
+  // constructor(props) {
+  //   super(props);
+  //   // create a ref to store the textInput DOM element
+  //   this.targetRef = React.createRef();
+  // }
 
   state = {
     showPortal: this.props.open,
   };
 
   componentDidMount() {
-    this.targetElement = this.targetRef.current;
-    console.log('targetElement:', this.targetElement)
+    // this.targetElement = this.targetRef.current;
+    // console.log('targetElement:', this.targetElement)
     // Block scroll when initial prop is open
     if (this.props.open) {
       this.handleOpen();
@@ -143,16 +147,16 @@ class Modal extends Component {
 
   blockScroll = () => {
     // noScroll.on();
-    console.log('blockScroll:', this.targetElement)
-    disableBodyScroll(this.targetElement, bsloptions);
+    console.log('blockScroll:', this.targetRef.current)
+    disableBodyScroll(this.targetRef.current, bsloptions);
   }
 
   unblockScroll = () => {
     // Restore the scroll only if there is no modal on the screen
     if (modalManager.modals().length === 0) {
       // noScroll.off();
-      console.log('unblockScroll:', this.targetElement)
-      enableBodyScroll(this.targetElement);
+      console.log('unblockScroll:', this.targetRef.current)
+      enableBodyScroll(this.targetRef.current);
     }
   };
 
