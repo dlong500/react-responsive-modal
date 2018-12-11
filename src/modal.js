@@ -138,11 +138,11 @@ class Modal extends Component {
       this.props.onExited();
     }
 
-    this.setState({ showPortal: false });
-
     if (this.props.blockScroll) {
       this.unblockScroll();
     }
+
+    this.setState({ showPortal: false });
   };
 
   blockScroll = () => {
