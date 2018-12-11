@@ -234,7 +234,7 @@ class Modal extends Component {
                 </FocusTrap>
               </div>
             ) : (
-              <div
+              <div ref={this.targetRef}
                 className={cx(classes.modal, classNames.modal)}
                 style={styles.modal}
                 onMouseDown={this.handleModalEvent}
