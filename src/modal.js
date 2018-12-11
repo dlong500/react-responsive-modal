@@ -36,6 +36,7 @@ class Modal extends Component {
   };
 
   componentDidMount() {
+    console.log('targetElement:', this.targetRef.current)
     // this.targetElement = this.targetRef.current;
     // console.log('targetElement:', this.targetElement)
     // Block scroll when initial prop is open
