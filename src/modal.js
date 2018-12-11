@@ -65,7 +65,7 @@ class Modal extends Component {
   handleOpen = () => {
     modalManager.add(this);
     if (this.props.blockScroll) {
-      Modal.blockScroll();
+      this.blockScroll();
     }
     document.addEventListener('keydown', this.handleKeydown);
   };
