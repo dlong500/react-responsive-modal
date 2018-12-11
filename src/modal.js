@@ -33,6 +33,7 @@ class Modal extends Component {
 
   componentDidMount() {
     this.targetElement = this.targetRef.current;
+    console.log('targetElement:', this.targetElement)
     // Block scroll when initial prop is open
     if (this.props.open) {
       this.handleOpen();
@@ -142,6 +143,7 @@ class Modal extends Component {
 
   blockScroll = () => {
     // noScroll.on();
+    console.log('blockScroll:', this.targetElement)
     disableBodyScroll(this.targetElement, bsloptions);
   }
 
@@ -149,6 +151,7 @@ class Modal extends Component {
     // Restore the scroll only if there is no modal on the screen
     if (modalManager.modals().length === 0) {
       // noScroll.off();
+      console.log('unblockScroll:', this.targetElement)
       enableBodyScroll(this.targetElement);
     }
   };
