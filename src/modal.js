@@ -7,6 +7,7 @@ import cx from 'classnames';
 // import noScroll from 'no-scroll';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 // import type { BodyScrollOptions } from 'body-scroll-lock';
+import shortid from 'shortid';
 import FocusTrap from 'focus-trap-react';
 import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
@@ -21,6 +22,8 @@ const bsloptions = {
 };
 
 class Modal extends Component {
+  //id = shortid.generate();
+
   targetRef = React.createRef();
 
   shouldClose = null;
@@ -37,6 +40,7 @@ class Modal extends Component {
 
   componentDidMount() {
     console.log('targetElement:', this.targetRef.current)
+    console.log('Modal-id-CDM:', this.id)
     // this.targetElement = this.targetRef.current;
     // console.log('targetElement:', this.targetElement)
     // Block scroll when initial prop is open
@@ -148,7 +152,7 @@ class Modal extends Component {
 
   blockScroll = () => {
     // noScroll.on();
-    console.log('blockScroll:', this.targetRef.current)
+    console.log('blockScroll:', this.id)
     disableBodyScroll(this.targetRef.current, bsloptions);
   }
 
@@ -156,7 +160,7 @@ class Modal extends Component {
     // Restore the scroll only if there is no modal on the screen
     if (modalManager.modals().length === 0) {
       // noScroll.off();
-      console.log('unblockScroll:', this.targetRef.current)
+      console.log('unblockScroll:', this.id)
       enableBodyScroll(this.targetRef.current);
     }
   };
